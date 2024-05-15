@@ -18,7 +18,7 @@ export class CountriesService {
   ) { }
 
   get regions(): Region[] {
-    return [ ...this._regions ];
+    return [ ...this._regions ];//para romper la relacion con las regiones
   }
 
   getCountriesByRegion( region: Region ): Observable<SmallCountry[]> {

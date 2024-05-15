@@ -25,14 +25,14 @@ export class SelectorPageComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private countriesService: CountriesService,
+    private countriesService: CountriesService,//consumir servicio
   ) {}
 
   ngOnInit(): void {
     this.onRegionChanged();
     this.onCountryChanged();
   }
-
+//permite que los valores se detecten en los componentes hijos
   get regions(): Region[] {
     return this.countriesService.regions;
   }
