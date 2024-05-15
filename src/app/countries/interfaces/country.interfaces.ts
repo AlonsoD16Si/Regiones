@@ -8,7 +8,7 @@ export enum Region {
 
 export interface SmallCountry {
   name   : string;
-  cca3   : string;
+  cca3   : string; //code ISO 3166-1 numeric (ccn3)
   borders: string[];
 }
 

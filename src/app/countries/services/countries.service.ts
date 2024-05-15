@@ -28,7 +28,7 @@ export class CountriesService {
 
     return this.http.get<Country[]>(url)
       .pipe(
-        map( countries => countries.map( country => ({
+        map( countries => countries.map( country => ({// map: toma la response que en este caso es "countries" 
           name: country.name.common,
           cca3: country.cca3,
           borders: country.borders ?? []
@@ -49,9 +49,9 @@ export class CountriesService {
   }
 
   getCountryBordersByCodes( borders: string[] ): Observable<SmallCountry[]> {
-    if ( !borders || borders.length === 0 ) return of([]);
+    if ( !borders || borders.length === 0 ) return of([]); //arreglo de bordes
 
-    const countriesRequests:Observable<SmallCountry>[]  = [];
+    const countriesRequests:Observable<SmallCountry>[]  = []; //coleccion de observables
 
     borders.forEach( code => {
       const request = this.getCountryByAlphaCode( code );
@@ -59,7 +59,7 @@ export class CountriesService {
     });
 
 
-    return combineLatest( countriesRequests );
+    return combineLatest( countriesRequests );//se manda el conjunto de observables
   }
 
 
